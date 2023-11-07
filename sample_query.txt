@@ -123,3 +123,23 @@ mutation AddMutation ($game: AddGameInput!) {
 }
 
 --------------------------------------------------------------
+
+// Update Data
+
+-------------------- JSON to update a game
+
+{
+  "edits": {
+    "title": "Valorant"
+  },
+  "id": "3"
+}
+
+--------------------    Update a specific game
+
+mutation EditMutation ($edits: EditGameInput!, $id: ID!) {
+  updateGame(edits: $edits, id: $id) {
+    title,
+    platform
+  }
+}
