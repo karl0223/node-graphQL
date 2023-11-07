@@ -79,3 +79,47 @@ query ReviewQuery($id: ID!) {
 }
 
 --------------------------------------------------------------
+
+// Delete Data, Add Data --- Mutation
+
+--------------------  JSON to delete game
+
+// JSON 
+
+{
+    "id": "2"
+}
+
+-------------------- Delete a specific game
+
+mutation DeleteMutation ($id: ID!) {
+  deleteGame(id: $id) {
+    id,
+    title,
+    platform
+  }
+}
+
+-------------------- JSON for Add game
+
+
+// JSON
+
+{
+  "game": {
+    "title": "a new game",
+    "platform": ["Switch", "ps5"]
+  }
+}
+
+--------------------    Add a specific game
+
+mutation AddMutation ($game: AddGameInput!) {
+  addGame(game: $game) {
+    id,
+    title,
+    platform
+  }
+}
+
+--------------------------------------------------------------
