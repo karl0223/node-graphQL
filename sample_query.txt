@@ -1,0 +1,37 @@
+// Sample Query for Query Variables
+
+------------------
+
+JSON request
+
+{
+    "id": "1"
+}
+
+------------------ Return Single Data with ID
+
+query ReviewQuery ($id: ID!) {
+  review (id: $id) {
+    id
+    rating
+    content
+  }
+}
+
+------------------
+
+query ReviewQuery ($id: ID!) {
+  review (id: $id) {
+    id
+    rating
+    content
+  }
+  game(id: $id) {
+    title
+  }
+  author(id: $id) {
+    name
+  }
+}
+------------------
+
