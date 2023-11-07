@@ -33,5 +33,49 @@ query ReviewQuery ($id: ID!) {
     name
   }
 }
-------------------
+--------------------------------------------------------------
 
+// Sample Query for Related Data
+
+--------------------    Return the reviews of a specific game
+
+query GameQuery ($id: ID!) {
+  game(id: $id) {
+    title
+    reviews {
+      rating
+      content
+    }
+  }
+}
+
+
+--------------------    Return the reviews of all games
+
+query GameQuery {
+  games {
+    title
+    reviews {
+      rating
+      content
+    }
+  }
+}
+
+--------------------    Return the reviews with game and author data
+
+query ReviewQuery($id: ID!) {
+  review(id: $id) {
+    rating,
+    game {
+      title
+      platform
+    },
+    author {
+      name
+      verified
+    }
+  }
+}
+
+--------------------------------------------------------------
